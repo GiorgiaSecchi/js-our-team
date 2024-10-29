@@ -33,10 +33,10 @@
   </head>
   <body>
     <!-- CONTAINER -->
-    <div class="container my-5">
+    <div class="container py-5">
       <!-- HEADER PAGE -->
       <div class="text-center">
-        <h1>MEET OUR TEAM</h1>
+        <h1 class="my-3">MEET OUR TEAM</h1>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos,
           et molestias, minima porro animi nam quia eius laborum tempora
@@ -45,7 +45,34 @@
         </p>
       </div>
 
-      <!-- GRID -->
+      <!-- FORM AGGIUNGI MEMBRO -->
+      <form class="my-5" action="">
+        <div class="row g-3 text-center">
+          <div class="col">
+            <label for="" class="form-label">Nome</label>
+            <input class="form-control" type="text" />
+          </div>
+          <div class="col">
+            <label for="" class="form-label">Ruolo</label>
+            <input class="form-control" type="text" />
+          </div>
+          <div class="col">
+            <label for="" class="form-label">Email</label>
+            <input class="form-control" type="text" />
+          </div>
+          <div class="col">
+            <label for="formFile" class="form-label">Immagine</label>
+            <input class="form-control" type="file" id="formFile" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col text-center">
+            <button class="btn btn-primary mt-4">INSERISCI</button>
+          </div>
+        </div>
+      </form>
+
+      <!-- CARDS GRID -->
       <div id="cards-grid" class="row row-cols-3 align-items-center">
         <!-- CARD STRUCTURE -->
 

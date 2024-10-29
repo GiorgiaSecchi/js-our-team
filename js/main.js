@@ -79,16 +79,17 @@ const generateMemberCardHtml = (name, role, email, img) => {
             </div>`;
 };
 
-//#
+//# Elaborazione card con dati forniti dalla lista di oggetti + output cards nell'html
 
+//* stringa vuota
 let cardsHtml = ``;
 
-//* per ogni oggetto dentro teamMembers (parametro "member")
+//* per ogni oggetto dentro lista teamMembers (parametro "member")
 teamMembers.forEach((member) => {
-  //* considerando che parametro "member" è uguale alle proprietà {...}
+  //* estraggo le informazioni {...} dall'oggeto "member"
   const { name, role, email, img } = member;
 
-  //* utilizzo la funzione con le proprietà e genero html card
+  //* utilizzo la funzione con le proprietà estratte e genero html card
   const memberCardHtml = generateMemberCardHtml(name, role, email, img);
 
   //* concateno le cards generate dentro la variabile già dichiarata fuori
