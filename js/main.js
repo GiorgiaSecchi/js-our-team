@@ -93,7 +93,7 @@ const printMemberCards = (container, members) => {
     // utilizzo la funzione con le proprietà estratte e genero html card
     const memberCardHtml = generateMemberCardHtml(name, role, email, img);
 
-    // concateno le cards generate dentro la variabile già dichiarata fuori
+    // concateno e assegno le cards generate dentro la variabile già dichiarata fuori
     cardsHtml += memberCardHtml;
   });
 
@@ -104,3 +104,31 @@ const printMemberCards = (container, members) => {
 //# output cards nell'html
 
 printMemberCards(cardsGrid, teamMembers);
+
+//# aggiunta membro
+
+const inputName = document.getElementById("input-Name");
+const inputRole = document.getElementById("input-Role");
+const inputEmail = document.getElementById("input-Email");
+const inputFile = document.getElementById("input-File");
+
+const buttonForm = document.getElementById("button-Form");
+
+// console.log(inputName, inputRole, inputEmail, inputFile, buttonForm);
+
+buttonForm.addEventListener("click", () => {
+  const name = inputName.value;
+  const role = inputRole.value;
+  const email = inputEmail.value;
+  const image = inputFile.value;
+
+  // creo nuovo oggetto con le variabili dichiarate ({name: name, role: role, ...})
+  const newMember = { name, role, email, image };
+
+  // lo aggiungo in fondo dentro teamMembers
+  teamMembers.push(newMember);
+
+  //invoco la funzione stampa card
+  printMemberCards(cardsGrid, teamMembers);
+  console.log(teamMembers);
+});
