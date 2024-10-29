@@ -79,22 +79,28 @@ const generateMemberCardHtml = (name, role, email, img) => {
             </div>`;
 };
 
-//# Elaborazione card con dati forniti dalla lista di oggetti + output cards nell'html
+//# Funzione: stampa card con dati forniti dalla lista di oggetti in un determinato elemento (contenitore)
 
-//* stringa vuota
-let cardsHtml = ``;
+const printMemberCards = (container, members) => {
+  // stringa vuota
+  let cardsHtml = ``;
 
-//* per ogni oggetto dentro lista teamMembers (parametro "member")
-teamMembers.forEach((member) => {
-  //* estraggo le informazioni {...} dall'oggeto "member"
-  const { name, role, email, img } = member;
+  // per ogni oggetto dentro lista teamMembers (parametro "member")
+  teamMembers.forEach((member) => {
+    // estraggo le informazioni {...} dall'oggeto "member"
+    const { name, role, email, img } = member;
 
-  //* utilizzo la funzione con le proprietà estratte e genero html card
-  const memberCardHtml = generateMemberCardHtml(name, role, email, img);
+    // utilizzo la funzione con le proprietà estratte e genero html card
+    const memberCardHtml = generateMemberCardHtml(name, role, email, img);
 
-  //* concateno le cards generate dentro la variabile già dichiarata fuori
-  cardsHtml += memberCardHtml;
-});
+    // concateno le cards generate dentro la variabile già dichiarata fuori
+    cardsHtml += memberCardHtml;
+  });
 
-//* le inseirsco dentro elemento html
-cardsGrid.innerHTML = cardsHtml;
+  // le inseirsco dentro elemento html
+  cardsGrid.innerHTML = cardsHtml;
+};
+
+//# output cards nell'html
+
+printMemberCards(cardsGrid, teamMembers);
