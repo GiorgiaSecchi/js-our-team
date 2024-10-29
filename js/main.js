@@ -51,30 +51,38 @@ const teamMembers = [
 const cardsGrid = document.getElementById("cards-grid");
 console.log(cardsGrid);
 
-const generateCardTeamHTML = (fullname, role, email, image) => {
-  return;
-  ` <div class="col">
-        <div class="card mb-3 shadow-sm">
-            <div class="row g-0">
-            <div class="col-md-4">
-                <img
-                src="./img/female1.png"
-                class="img-fluid rounded-start"
-                alt="female1"
-                />
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                <h5 class="card-title">MARCO BIANCHI</h5>
-                <p class="card-text">Designer</p>
-                <p class="card-text">
-                    <small class="text-body-secondary"
-                    >maurobianchi@team.com</small
-                    >
-                </p>
+const generateMemberCardHtml = (name, role, email, img) => {
+  return ` <div class="col">
+                <div class="card mb-3 shadow-sm">
+                    <div class="row g-0">
+                    <div class="col-md-4">
+                        <img
+                        src="./img/${img}"
+                        class="img-fluid rounded-start"
+                        />
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                        <h5 class="card-title">${name}</h5>
+                        <p class="card-text">${role}</p>
+                        <p class="card-text">
+                            <small class="text-body-secondary"
+                            >${email}</small
+                            >
+                        </p>
+                        </div>
+                    </div>
+                    </div>
                 </div>
-            </div>
-            </div>
-        </div>
-    </div>`;
+            </div>`;
 };
+
+let cardsHtml = ``;
+
+teamMembers.forEach((member) => {
+  const { name, role, email, img } = member;
+  const memberCardHtml = generateMemberCardHtml(name, role, email, img);
+  cardsHtml += memberCardHtml;
+});
+
+cardsGrid.innerHTML = cardsHtml;
