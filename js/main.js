@@ -116,16 +116,18 @@ const buttonForm = document.getElementById("button-Form");
 
 // console.log(inputName, inputRole, inputEmail, inputFile, buttonForm);
 
-buttonForm.addEventListener("click", () => {
+buttonForm.addEventListener("click", (event) => {
+  event.preventDefault();
+
   const name = inputName.value;
   const role = inputRole.value;
   const email = inputEmail.value;
-  const image = inputFile.value;
+  const img = inputFile.value;
 
   // creo nuovo oggetto con le variabili dichiarate ({name: name, role: role, ...})
-  const newMember = { name, role, email, image };
+  const newMember = { name, role, email, img };
 
-  // lo aggiungo in fondo dentro teamMembers
+  // lo aggiungo in fondo alla lista teamMembers
   teamMembers.push(newMember);
 
   //invoco la funzione stampa card
