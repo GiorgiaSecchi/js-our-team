@@ -46,10 +46,12 @@ const teamMembers = [
   },
 ];
 
-//# Genero html card
+//# Recupero elemento in cui generare le card
 
 const cardsGrid = document.getElementById("cards-grid");
 console.log(cardsGrid);
+
+//# Funzione che genera html card
 
 const generateMemberCardHtml = (name, role, email, img) => {
   return ` <div class="col">
@@ -77,12 +79,21 @@ const generateMemberCardHtml = (name, role, email, img) => {
             </div>`;
 };
 
+//#
+
 let cardsHtml = ``;
 
+//* per ogni oggetto dentro teamMembers (parametro "member")
 teamMembers.forEach((member) => {
+  //* considerando che parametro "member" è uguale alle proprietà {...}
   const { name, role, email, img } = member;
+
+  //* utilizzo la funzione con le proprietà e genero html card
   const memberCardHtml = generateMemberCardHtml(name, role, email, img);
+
+  //* concateno le cards generate dentro la variabile già dichiarata fuori
   cardsHtml += memberCardHtml;
 });
 
+//* le inseirsco dentro elemento html
 cardsGrid.innerHTML = cardsHtml;
