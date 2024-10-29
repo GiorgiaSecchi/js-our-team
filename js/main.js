@@ -57,7 +57,7 @@ const generateMemberCardHtml = (name, role, email, img) => {
                     <div class="row g-0">
                     <div class="col-md-4">
                         <img
-                        src="./img/${img}"
+                        src="./${img}"
                         class="img-fluid rounded-start"
                         />
                     </div>
